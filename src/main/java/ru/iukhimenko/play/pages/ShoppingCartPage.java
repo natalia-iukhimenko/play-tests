@@ -35,6 +35,7 @@ public class ShoppingCartPage extends BasePage {
                     .noneMatch(r -> r.getProductName().equals(row.getProductName()));
             assertThat(isRowRemoved).isTrue();
         });
+        assertThat(getProductRows()).isEmpty();
         checkCartEmptyMessageDisplayed();
         return this;
     }

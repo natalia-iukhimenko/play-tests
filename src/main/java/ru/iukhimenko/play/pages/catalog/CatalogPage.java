@@ -35,7 +35,7 @@ public abstract class CatalogPage extends BasePage {
                 .collect(Collectors.toList());
     }
 
-    public void addAvailableProductToCart(int amount) {
+    public CatalogPage addAvailableProductToCart(int amount) {
         List<ProductTile> productTiles = getAvailableProducts();
         if (!productTiles.isEmpty()) {
             productTiles.get(0).openQuickViewForm()
@@ -43,5 +43,6 @@ public abstract class CatalogPage extends BasePage {
         } else {
             throw new AssertionError("Failed to add an available product to cart: no available products found");
         }
+        return this;
     }
 }

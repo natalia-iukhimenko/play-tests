@@ -1,15 +1,17 @@
 package ru.iukhimenko.play.tests;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import ru.iukhimenko.play.core.BaseUITest;
 import ru.iukhimenko.play.pages.StartPage;
 
 public class CartTests extends BaseUITest {
-    @Test
-    public void checkClearingTheCart() {
+    @ParameterizedTest
+    @ValueSource(ints = 3)
+    public void checkClearingTheCart(int productsCount) {
         new StartPage().acceptAllCookies()
                 .openForBabysCatalog()
-                .addAvailableProductToCart(3)
+                .addAvailableProductToCart(productsCount)
                 .goToCart()
                 .checkAllProductsRemoval();
     }

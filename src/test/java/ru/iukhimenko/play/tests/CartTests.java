@@ -12,8 +12,7 @@ public class CartTests extends BaseUITest {
     @ParameterizedTest
     @ValueSource(ints = 3)
     public void checkClearingTheCart(int productsCount) {
-        new StartPage().acceptAllCookies()
-                .openForBabysCatalog()
+        new StartPage().openForBabysCatalog()
                 .addAvailableProductToCart(productsCount)
                 .goToCart()
                 .checkAllProductsRemoval();

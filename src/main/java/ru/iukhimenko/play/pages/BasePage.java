@@ -24,4 +24,8 @@ public abstract class BasePage {
         rightHeaderSlot.openCart();
         return new ShoppingCartPage();
     }
+
+    public void goToPaypal() {
+        rightHeaderSlot.goDirectlyToPaypal();
+    }
 }
